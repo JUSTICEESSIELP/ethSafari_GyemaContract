@@ -2,5 +2,38 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+solc = "0.8.26"
+cbor_metadata=true
+optimizer = true
+optimizer_runs = 200
+fs_permissions = [
+    { access = "read", path = "./script/target/register.json" },
+    { access = "write", path = "./script/target/output.json" }
+]
 
+
+
+
+remappings = [
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    'forge-std/=lib/forge-std/src/',
+    "@mdexSwap/=lib/contracts/", 
+    '@chainlink/=lib/chainlink-brownie-contracts/',
+    '@foundry-devops/=lib/foundry-devops/',
+    '@solmate=lib/solmate/src/'
+]
+
+[fmt]
+bracket_spacing = true
+int_types = "long"
+line_length = 120
+multiline_func_header = "all"
+number_underscore = "thousands"
+quote_style = "double"
+tab_width = 4
+wrap_comments = true
+
+
+[etherscan]
+arbitrum-sepolia = { key = "${ARBISCAN_API_KEY}", url = "https://api-sepolia.arbiscan.io/api" }
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
